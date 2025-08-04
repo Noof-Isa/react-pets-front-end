@@ -25,10 +25,19 @@ const App = () => {
     setSelected(pet)
   }
 
-  const handleAddPet = async (formData) => {
-    // await petService.create()
-    console.log(formData)
-  }
+
+
+const handleAddPet = async (formData) => {
+    try {
+      // Call petService.create, assign return value to newPet
+      const newPet = await petService.create(formData);
+      // Log the newPet to the console
+      console.log(newPet);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
 
   return (
     <>
